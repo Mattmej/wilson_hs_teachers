@@ -19,7 +19,7 @@ const teacherList = (props) => {
 
     const displayedNames = props.entries.map(entry => {
         return (
-            <div>
+            <div key={entry.id}>
                 <Row>{entry.lastName}, {entry.firstName}</Row>
                 <Row className='space'></Row>
             </div>

@@ -50,13 +50,14 @@ class App extends Component {
 
     // Takes JSON from Google Sheets and makes it easier to organize.
     for (let i = 0; i < 55; i++) {
-      teacherEntries[i] = [data.feed.entry[(4*i) + 4].content.$t, data.feed.entry[(4*i) + 5].content.$t, data.feed.entry[(4*i) + 6].content.$t, data.feed.entry[(4*i) + 7].content.$t]
+      teacherEntries[i] = [data.feed.entry[(4*i) + 4].content.$t, data.feed.entry[(4*i) + 5].content.$t, data.feed.entry[(4*i) + 6].content.$t, data.feed.entry[(4*i) + 7].content.$t, i]
     }
 
 
     // Takes all info on each teacher and makes it an object. Then sorts alphabetically.
     teacherObjectEntries = teacherEntries.map(entry => {
       const obj = {
+        id: entry[4],
         lastName: entry[1],
         firstName: entry[0],
         email: entry[2],
@@ -65,6 +66,10 @@ class App extends Component {
       return obj;
     })
     .sort(dynamicSort("lastName"));
+
+    for (let i=0; i<teacherObjectEntries.length; i++) {
+      teacherObjectEntries[i]["key"] = i;
+    }
 
     console.log(teacherObjectEntries);
 
