@@ -40,17 +40,26 @@ class App extends Component {
     // console.log(data.feed.entry);
     // this.setState({list: data});
     let teacherEntries = [];
-    let simplifiedTeacherEntries = [];
+    let teacherObjectEntries = [];
     for (let i = 0; i < 55; i++) {
       teacherEntries[i] = [data.feed.entry[(4*i) + 4].content.$t, data.feed.entry[(4*i) + 5].content.$t, data.feed.entry[(4*i) + 6].content.$t, data.feed.entry[(4*i) + 7].content.$t]
     }
     // console.log(teacherEntries);
-    this.setState({entries: teacherEntries});
-    console.log(this.state.entries);
+    // this.setState({entries: teacherEntries});
+    // console.log(this.state.entries);
 
-    // simplifiedTeacherEntries = teacherEntries.map(item => item.content.$t);
-    // console.log(simplifiedTeacherEntries)
+    teacherObjectEntries = teacherEntries.map(entry => {
+      const obj = {
+        lastName: entry[1],
+        firstName: entry[0],
+        email: entry[2],
+        flipgrid: entry[3]
+      };
+      return obj;
+    });
 
+    console.log(teacherObjectEntries);
+    this.setState({entries: teacherObjectEntries});
 
   }
 
