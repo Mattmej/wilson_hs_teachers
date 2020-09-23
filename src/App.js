@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import Container from 'react-bootstrap/Container';
+import { Container, Row, Col } from 'reactstrap';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
+import Header from './Components/Header';
+
 
 // function App() {
 //   return (
@@ -27,7 +33,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component {
   render() {
     return(
-      <div>Hello, world!</div>
+      // <div>Hello, world!</div>
+      <Container fluid className='mx-0'>
+        <Header 
+          pageTitle='Wilson High School Teacher List'
+          // subTitle='Use the search bar to find a teacher, or display a list of all teachers!'
+        />
+      </Container>
     )
   }
 }
