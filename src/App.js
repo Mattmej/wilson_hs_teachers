@@ -31,6 +31,36 @@ import Header from './Components/Header';
 // }
 
 class App extends Component {
+
+  state = {
+    entries: []
+  }
+
+  buildList = (data) => {
+    // console.log(data.feed.entry);
+    // this.setState({list: data});
+    let teacherEntries = [];
+    let simplifiedTeacherEntries = [];
+    for (let i = 0; i < 55; i++) {
+      teacherEntries[i] = [data.feed.entry[(4*i) + 4].content.$t, data.feed.entry[(4*i) + 5].content.$t, data.feed.entry[(4*i) + 6].content.$t, data.feed.entry[(4*i) + 7].content.$t]
+    }
+    // console.log(teacherEntries);
+    this.setState({entries: teacherEntries});
+    console.log(this.state.entries);
+
+    // simplifiedTeacherEntries = teacherEntries.map(item => item.content.$t);
+    // console.log(simplifiedTeacherEntries)
+
+
+  }
+
+  componentDidMount() {
+    let url = 'https://spreadsheets.google.com/feeds/cells/1SsnIbFx8sdT-lMr0TmCBBqbUjodyYZAth4m8tl7RHnw/1/public/full?alt=json';
+    fetch(url)
+    .then(response => response.json())
+    .then(this.buildList);
+  }
+
   render() {
     return(
       // <div>Hello, world!</div>
