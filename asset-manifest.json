@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/wilson_hs_teachers/static/css/main.5f361e03.chunk.css",
+    "main.js": "/wilson_hs_teachers/static/js/main.54269c51.chunk.js",
+    "main.js.map": "/wilson_hs_teachers/static/js/main.54269c51.chunk.js.map",
+    "runtime-main.js": "/wilson_hs_teachers/static/js/runtime-main.46f624f6.js",
+    "runtime-main.js.map": "/wilson_hs_teachers/static/js/runtime-main.46f624f6.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/wilson_hs_teachers/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.259d9e1c.chunk.js": "/wilson_hs_teachers/static/js/2.259d9e1c.chunk.js",
+    "static/js/2.259d9e1c.chunk.js.map": "/wilson_hs_teachers/static/js/2.259d9e1c.chunk.js.map",
+    "index.html": "/wilson_hs_teachers/index.html",
+    "precache-manifest.72faffc5e8f9fe79eb8de0a62457f13c.js": "/wilson_hs_teachers/precache-manifest.72faffc5e8f9fe79eb8de0a62457f13c.js",
+    "service-worker.js": "/wilson_hs_teachers/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/wilson_hs_teachers/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.5f361e03.chunk.css.map": "/wilson_hs_teachers/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.259d9e1c.chunk.js.LICENSE.txt": "/wilson_hs_teachers/static/js/2.259d9e1c.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/wilson_hs_teachers/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.46f624f6.js",
+    "static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.259d9e1c.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.54269c51.chunk.js"
+  ]
+}
