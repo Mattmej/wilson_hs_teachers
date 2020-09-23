@@ -37,18 +37,43 @@ class App extends Component {
   }
 
   buildList = (data) => {
-    // console.log(data.feed.entry);
-    // this.setState({list: data});
+
     let teacherEntries = [];
     let teacherObjectEntries = [];
-    let sortedTeacherObjectEntries = [];
+
+
+    /*
+    Function to sort alphabetically an array of objects by some specific key.
+ 
+    @param {String} property Key of the object to sort.
+    */
+
+    function dynamicSort(property) {
+      var sortOrder = 1;
+
+      if(property[0] === "-") {
+          sortOrder = -1;
+          property = property.substr(1);
+      }
+
+      return function (a,b) {
+          if(sortOrder == -1){
+              return b[property].localeCompare(a[property]);
+          }else{
+              return a[property].localeCompare(b[property]);
+          }        
+      }
+    }
+
+
+
+    // Takes JSON from Google Sheets and makes it easier to organize.
     for (let i = 0; i < 55; i++) {
       teacherEntries[i] = [data.feed.entry[(4*i) + 4].content.$t, data.feed.entry[(4*i) + 5].content.$t, data.feed.entry[(4*i) + 6].content.$t, data.feed.entry[(4*i) + 7].content.$t]
     }
-    // console.log(teacherEntries);
-    // this.setState({entries: teacherEntries});
-    // console.log(this.state.entries);
 
+
+    // Takes all info on each teacher and makes it an object. Then sorts alphabetically.
     teacherObjectEntries = teacherEntries.map(entry => {
       const obj = {
         lastName: entry[1],
@@ -57,36 +82,13 @@ class App extends Component {
         flipgrid: entry[3]
       };
       return obj;
-    });
+    })
+    .sort(dynamicSort("lastName"));
 
-    // console.log(teacherObjectEntries);
-    // this.setState({entries: teacherObjectEntries});
+    console.log(teacherObjectEntries);
 
-    /*
- * Function to sort alphabetically an array of objects by some specific key.
- 
- @param {String} property Key of the object to sort.
- */
-
-  function dynamicSort(property) {
-    var sortOrder = 1;
-
-    if(property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-    }
-
-    return function (a,b) {
-        if(sortOrder == -1){
-            return b[property].localeCompare(a[property]);
-        }else{
-            return a[property].localeCompare(b[property]);
-        }        
-    }
-  }
-
-    sortedTeacherObjectEntries = teacherObjectEntries.sort(dynamicSort("lastName"));
-    console.log(sortedTeacherObjectEntries);
+    // Sets state
+    this.setState({entries: teacherObjectEntries});
 
   }
 
