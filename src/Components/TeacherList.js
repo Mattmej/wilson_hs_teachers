@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import Jumbotron from 'react-bootstrap/Jumbotron';
-import {Row, Col} from 'reactstrap';
+import {Row, Col, Button} from 'reactstrap';
 import '../App.css';
 
 // const header = (props) => {
@@ -20,7 +20,11 @@ const teacherList = (props) => {
     const displayedNames = props.entries.map(entry => {
         return (
             <div key={entry.id}>
-                <Row>{entry.lastName}, {entry.firstName}</Row>
+                <Row className='justify-content-center'>
+                    <Button color="link">
+                        {entry.lastName}, {entry.firstName}
+                    </Button>
+                </Row>
                 <Row className='space'></Row>
             </div>
         
