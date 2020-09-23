@@ -41,6 +41,7 @@ class App extends Component {
     // this.setState({list: data});
     let teacherEntries = [];
     let teacherObjectEntries = [];
+    let sortedTeacherObjectEntries = [];
     for (let i = 0; i < 55; i++) {
       teacherEntries[i] = [data.feed.entry[(4*i) + 4].content.$t, data.feed.entry[(4*i) + 5].content.$t, data.feed.entry[(4*i) + 6].content.$t, data.feed.entry[(4*i) + 7].content.$t]
     }
@@ -58,8 +59,34 @@ class App extends Component {
       return obj;
     });
 
-    console.log(teacherObjectEntries);
-    this.setState({entries: teacherObjectEntries});
+    // console.log(teacherObjectEntries);
+    // this.setState({entries: teacherObjectEntries});
+
+    /*
+ * Function to sort alphabetically an array of objects by some specific key.
+ 
+ @param {String} property Key of the object to sort.
+ */
+
+  function dynamicSort(property) {
+    var sortOrder = 1;
+
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+
+    return function (a,b) {
+        if(sortOrder == -1){
+            return b[property].localeCompare(a[property]);
+        }else{
+            return a[property].localeCompare(b[property]);
+        }        
+    }
+  }
+
+    sortedTeacherObjectEntries = teacherObjectEntries.sort(dynamicSort("lastName"));
+    console.log(sortedTeacherObjectEntries);
 
   }
 
