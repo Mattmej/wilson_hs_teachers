@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 // import Jumbotron from 'react-bootstrap/Jumbotron';
+import {Row, Col} from 'reactstrap';
+import '../App.css';
 
 // const header = (props) => {
 //     return (
@@ -14,5 +16,32 @@ import React from 'react';
 
 
 const teacherList = (props) => {
-    
+
+    const displayedNames = props.entries.map(entry => {
+        return (
+            <div>
+                <Row>{entry.lastName}, {entry.firstName}</Row>
+                <Row className='space'></Row>
+            </div>
+        
+        )
+    })
+
+
+    return (
+        <div>
+            {displayedNames}
+        </div>
+    )
+
 }
+
+// class teacherList extends Component {
+//     render() {
+//         return(
+//             <div>{this.props.entry}</div>
+//         )
+//     }
+// }
+
+export default teacherList;
