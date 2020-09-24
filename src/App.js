@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Container from 'react-bootstrap/Container';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 // import Row from 'react-bootstrap/Row';
 // import Col from 'react-bootstrap/Col';
 import Header from './Components/Header';
@@ -127,7 +127,7 @@ class App extends Component {
 
   render() {
 
-    
+    let teacherIsSelected = this.state.teacher;
 
 
 
@@ -138,7 +138,36 @@ class App extends Component {
           pageTitle='Wilson High School Teacher List'
           // subTitle='Use the search bar to find a teacher, or display a list of all teachers!'
         />
+
+        {!teacherIsSelected 
+        ? 
         <TeacherList entries={this.state.entries} click={this.storeTeacher.bind(this)}/>
+        : 
+        <div>
+          <Row>
+            <div className='d-flex justify-content-center col px-auto'>Name:</div>
+            <div className='d-flex justify-content-center col px-auto'>{this.state.teacher.name}</div>
+          </Row>
+          <Row className='space'></Row>
+          <Row>
+            <div className='d-flex justify-content-center col px-auto'>Email:</div>
+            <div className='d-flex justify-content-center col px-auto'>{this.state.teacher.email}</div>
+          </Row>
+          <Row className='space'></Row>
+          <Row>
+            <div className='d-flex justify-content-center col px-auto'>Flipgrid:</div>
+            <div className='d-flex justify-content-center col px-auto'>{this.state.teacher.flipgrid}</div>
+          </Row>
+          <Row className='space'></Row>
+          <Row>
+            <div className='d-flex justify-content-center col px-auto'>Classroom:</div>
+            <div className='d-flex justify-content-center col px-auto'>{this.state.teacher.classroom}</div>
+          </Row>
+
+        </div>
+
+      }
+        
       </Container>
     )
   }
