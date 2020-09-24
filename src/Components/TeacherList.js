@@ -15,44 +15,54 @@ import '../App.css';
 // export default header;
 
 
-const teacherList = (props) => {
+// const teacherList = (props) => {
 
-    // showId = (id) => {
-    //     alert('The id of this button is ' + id);
-    // }
+//     // showId = (id) => {
+//     //     alert('The id of this button is ' + id);
+//     // }
 
-    const displayedNames = props.entries.map(entry => {
-        return (
-            <div key={entry.id}>
-                <Row className='justify-content-center'>
-                    <Button color="link" id={entry.id} onClick={() => {
-                        const alertId = entry.id;
-                        alert('the id is ' + alertId);
-                    }}>
-                        {entry.name}
-                    </Button>
-                </Row>
-                <Row className='space'></Row>
-            </div>
-        
-        )
-    })
+    
 
+//     return (
+//         <div>
+//             {displayedNames}
+//         </div>
+//     )
 
-    return (
-        <div>
-            {displayedNames}
-        </div>
-    )
-
-}
-
-// class teacherList extends Component {
-//     render() {
-//         return(
-//             <div>{this.props.entry}</div>
-//         )
-//     }
 // }
+
+class teacherList extends Component {
+    render() {
+
+        const displayedNames = this.props.entries.map(entry => {
+            return (
+                <div key={entry.id}>
+                    <Row className='justify-content-center'>
+                        {/* <Button color="link" id={entry.id} onClick={() => {
+                            const alertId = entry.id;
+                            alert('the id is ' + alertId);
+                        }}> */} 
+                        {/* <Button color='link' onClick={() => {
+                            // const a = 1;
+                            this.setState({
+                                teacher: entry
+                            }).bind(this)
+                        }}> */}
+    
+                        <Button color='link' onClick={this.props.click}>
+                            {entry.name}
+                        </Button>
+                    </Row>
+                    <Row className='space'></Row>
+                </div>
+            
+            )
+        })
+    
+        return(
+            <div>{displayedNames}</div>
+        )
+    }
+}
 
 export default teacherList;

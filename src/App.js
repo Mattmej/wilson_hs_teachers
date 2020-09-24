@@ -14,7 +14,8 @@ import TeacherList from './Components/TeacherList';
 class App extends Component {
 
   state = {
-    entries: []
+    entries: [],
+    teacher: null
   }
 
   buildList = (data) => {
@@ -98,13 +99,22 @@ class App extends Component {
     .then(this.buildList);
   }
 
+  storeTeacher = () => {
+    // const id_to_search = this.id;
+    // let ourTeacherEntries = this.state.entries;
+    // let ourTeacher = ourTeacherEntries.find(entry => entry.id === teacherId);
+    // this.setState({teacher: ourTeacher});
+    // console.log(this.state.teacher);
+
+    
+    console.log(this);              // displays the app itself to the console.
+  }
+
 
 
   render() {
 
-    // storeData = (teacher) => {
-
-    // }
+    
 
 
 
@@ -115,7 +125,7 @@ class App extends Component {
           pageTitle='Wilson High School Teacher List'
           // subTitle='Use the search bar to find a teacher, or display a list of all teachers!'
         />
-        <TeacherList entries={this.state.entries}/>
+        <TeacherList entries={this.state.entries} click={this.storeTeacher}/>
       </Container>
     )
   }
