@@ -32,6 +32,41 @@ import '../App.css';
 // }
 
 class teacherList extends Component {
+
+    constructor(props) {
+        super();
+        this.state = {
+            clickedTeacher: null
+        }
+    }
+
+    // Will look through array of teacher objects for whatever matches the 'teacher_id'
+    // onClickedTeacher(teacher_id) {
+        // console.log(this);
+
+
+    // }
+
+    onClickedTeacher = (teacher_id) => {
+        //         let teacherArray = this.props.entries;
+        // let ourTeacher = teacherArray.find(entry => entry.id === teacher_id);
+        // this.setState({
+        //     clickedTeacher: ourTeacher
+        // })
+
+
+        this.props.click(this.state.clickedTeacher)
+    }
+
+    // displayTeacherId = (e, teacher_id) => {
+    //     e.preventDefault();
+    //     console.log("The id is " + teacher_id)
+    // }
+
+    // displayObject = () => {
+    //     console.log(entry.id);
+    // }
+
     render() {
 
         const displayedNames = this.props.entries.map(entry => {
@@ -48,10 +83,30 @@ class teacherList extends Component {
                                 teacher: entry
                             }).bind(this)
                         }}> */}
-    
-                        <Button color='link' onClick={this.props.click}>
+{/*     
+                        <Button color='link' onClick={this.onClickedTeacher(entry.id).bind(this)}>
+                            {entry.name}
+                        </Button> */}
+
+                        {/* <Button color='link' onClick={this.displayObject}>
+                            {entry.name}
+                        </Button> */}
+
+
+                        <Button color='link' id={entry.id} onClick={() => {
+                            const thisId = entry.id;
+                            const ourTeacher = this.props.entries.find(entry => entry.id === thisId);
+                            this.setState({
+                                teacher: ourTeacher
+                            })
+                            // console.log(this.state.teacher);
+                            console.log(ourTeacher)
+                        }}>
                             {entry.name}
                         </Button>
+
+
+                        {/* <Button color='link'>{entry.name}</Button> */}
                     </Row>
                     <Row className='space'></Row>
                 </div>
