@@ -29,59 +29,70 @@ class App extends Component {
     @param {String} property Key of the object to sort.
     */
 
-    function dynamicSort(property) {
-      var sortOrder = 1;
+    // function dynamicSort(property) {
+    //   var sortOrder = 1;
 
-      if(property[0] === "-") {
-          sortOrder = -1;
-          property = property.substr(1);
-      }
+    //   if(property[0] === "-") {
+    //       sortOrder = -1;
+    //       property = property.substr(1);
+    //   }
 
-      return function (a,b) {
-          if(sortOrder == -1){
-              return b[property].localeCompare(a[property]);
-          }else{
-              return a[property].localeCompare(b[property]);
-          }        
-      }
-    }
+    //   return function (a,b) {
+    //       if(sortOrder == -1){
+    //           return b[property].localeCompare(a[property]);
+    //       }else{
+    //           return a[property].localeCompare(b[property]);
+    //       }        
+    //   }
+    // }
 
 
 
     // Takes JSON from Google Sheets and makes it easier to organize.
-    for (let i = 0; i < 55; i++) {
-      teacherEntries[i] = [data.feed.entry[(4*i) + 4].content.$t, data.feed.entry[(4*i) + 5].content.$t, data.feed.entry[(4*i) + 6].content.$t, data.feed.entry[(4*i) + 7].content.$t, i]
+    // Col 1: Employee name
+    // Col 2: Email Address
+    // Col 3: Flipgrid
+    // Col 4: Virtual Classroom
+    // Col 5: Missing
+    for (let i = 0; i < 83; i++) {
+      teacherEntries[i] = [data.feed.entry[(5*i) + 5].content.$t, 
+                            data.feed.entry[(5*i) + 6].content.$t, 
+                            data.feed.entry[(5*i) + 7].content.$t, 
+                            data.feed.entry[(5*i) + 8].content.$t, 
+                            data.feed.entry[(5*i) + 9].content.$t,
+                            i]
     }
 
 
     // Takes all info on each teacher and makes it an object. Then sorts alphabetically.
-    teacherObjectEntries = teacherEntries.map(entry => {
-      const obj = {
-        id: entry[4],
-        lastName: entry[1],
-        firstName: entry[0],
-        email: entry[2],
-        flipgrid: entry[3]
-      };
-      return obj;
-    })
-    .sort(dynamicSort("lastName"));
+    // teacherObjectEntries = teacherEntries.map(entry => {
+    //   const obj = {
+    //     id: entry[5],
+    //     name: entry[0],
+    //     email: entry[1],
+    //     flipgrid: entry[2],
+    //     classroom: entry[3]
+    //   };
+    //   return obj;
+    // });
 
-    for (let i=0; i<teacherObjectEntries.length; i++) {
-      teacherObjectEntries[i]["key"] = i;
-    }
+    // for (let i=0; i<teacherObjectEntries.length; i++) {
+    //   teacherObjectEntries[i]["key"] = i;
+    // }
 
-    console.log(teacherObjectEntries);
+    // console.log(teacherObjectEntries);
+    console.log(teacherEntries);
 
     // Sets state
-    this.setState({entries: teacherObjectEntries});
+    // this.setState({entries: teacherObjectEntries});
 
   }
 
 
 
   componentDidMount() {
-    let url = 'https://spreadsheets.google.com/feeds/cells/1SsnIbFx8sdT-lMr0TmCBBqbUjodyYZAth4m8tl7RHnw/1/public/full?alt=json';
+    // let url = 'https://spreadsheets.google.com/feeds/cells/1SsnIbFx8sdT-lMr0TmCBBqbUjodyYZAth4m8tl7RHnw/1/public/full?alt=json';
+    let url = 'https://spreadsheets.google.com/feeds/cells/1UnWSsGHeVk9ITccEx11U1SIx_YrBATyLTSI8_aJdAYs/1/public/full?alt=json'
     fetch(url)
     .then(response => response.json())
     .then(this.buildList);
@@ -104,7 +115,7 @@ class App extends Component {
           pageTitle='Wilson High School Teacher List'
           // subTitle='Use the search bar to find a teacher, or display a list of all teachers!'
         />
-        <TeacherList entries={this.state.entries}/>
+        {/* <TeacherList entries={this.state.entries}/> */}
       </Container>
     )
   }
