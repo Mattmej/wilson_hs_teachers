@@ -17,11 +17,18 @@ import '../App.css';
 
 const teacherList = (props) => {
 
+    // showId = (id) => {
+    //     alert('The id of this button is ' + id);
+    // }
+
     const displayedNames = props.entries.map(entry => {
         return (
             <div key={entry.id}>
                 <Row className='justify-content-center'>
-                    <Button color="link">
+                    <Button color="link" id={entry.id} onClick={() => {
+                        const alertId = entry.id;
+                        alert('the id is ' + alertId);
+                    }}>
                         {entry.lastName}, {entry.firstName}
                     </Button>
                 </Row>

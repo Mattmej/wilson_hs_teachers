@@ -87,7 +87,16 @@ class App extends Component {
     .then(this.buildList);
   }
 
+
+
   render() {
+
+    // storeData = (teacher) => {
+
+    // }
+
+
+
     return(
       // <div>Hello, world!</div>
       <Container fluid className='mx-0'>
