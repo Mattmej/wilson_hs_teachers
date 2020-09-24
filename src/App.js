@@ -29,30 +29,6 @@ class App extends Component {
     let teacherObjectEntries = [];
 
 
-    /*
-    Function to sort alphabetically an array of objects by some specific key.
- 
-    @param {String} property Key of the object to sort.
-    */
-
-    // function dynamicSort(property) {
-    //   var sortOrder = 1;
-
-    //   if(property[0] === "-") {
-    //       sortOrder = -1;
-    //       property = property.substr(1);
-    //   }
-
-    //   return function (a,b) {
-    //       if(sortOrder == -1){
-    //           return b[property].localeCompare(a[property]);
-    //       }else{
-    //           return a[property].localeCompare(b[property]);
-    //       }        
-    //   }
-    // }
-
-
 
     // Takes JSON from Google Sheets and makes it easier to organize.
     // Col 1: Employee name
@@ -82,12 +58,8 @@ class App extends Component {
       return obj;
     });
 
-    // for (let i=0; i<teacherObjectEntries.length; i++) {
-    //   teacherObjectEntries[i]["key"] = i;
-    // }
 
     console.log(teacherObjectEntries);
-    // console.log(teacherEntries);
 
     // Sets state
     this.setState({entries: teacherObjectEntries});
@@ -97,7 +69,6 @@ class App extends Component {
 
 
   componentDidMount() {
-    // let url = 'https://spreadsheets.google.com/feeds/cells/1SsnIbFx8sdT-lMr0TmCBBqbUjodyYZAth4m8tl7RHnw/1/public/full?alt=json';
     let url = 'https://spreadsheets.google.com/feeds/cells/1UnWSsGHeVk9ITccEx11U1SIx_YrBATyLTSI8_aJdAYs/1/public/full?alt=json'
     fetch(url)
     .then(response => response.json())
@@ -105,14 +76,6 @@ class App extends Component {
   }
 
   storeTeacher = (clickedTeacher) => {
-    // const id_to_search = this.id;
-    // let ourTeacherEntries = this.state.entries;
-    // let ourTeacher = ourTeacherEntries.find(entry => entry.id === teacherId);
-    // this.setState({teacher: ourTeacher});
-    // console.log(this.state.teacher);
-
-
-    // console.log(this);              // displays the app itself to the console.
 
 
     this.setState({
@@ -142,7 +105,7 @@ class App extends Component {
       <Container fluid className='mx-0'>
         <Header 
           pageTitle='Wilson High School Teacher List'
-          // subTitle='Use the search bar to find a teacher, or display a list of all teachers!'
+          subTitle="Click on a teacher's name to view their info!"
         />
 
         {!teacherIsSelected 
@@ -165,14 +128,14 @@ class App extends Component {
           <Row>
             <div className='d-flex justify-content-end col'>Flipgrid:</div>
             <div className='d-flex justify-content-start col'>
-              <a href={this.state.teacher.flipgrid}>{this.state.teacher.flipgrid}</a>
+              <a target='_blank' href={this.state.teacher.flipgrid}>{this.state.teacher.flipgrid}</a>
             </div>
           </Row>
           <Row className='space'></Row>
           <Row>
             <div className='d-flex justify-content-end col'>Classroom:</div>
             <div className='d-flex justify-content-start col'>
-              <a href={this.state.teacher.classroom}>{this.state.teacher.classroom}</a>
+              <a target='_blank' href={this.state.teacher.classroom}>{this.state.teacher.classroom}</a>
             </div>
           </Row>
           <Row className='space'></Row>
