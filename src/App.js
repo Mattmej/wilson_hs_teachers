@@ -151,23 +151,23 @@ class App extends Component {
         : 
         <div>
           <Row>
-            <div className='d-flex justify-content-center col px-auto'>Name:</div>
-            <div className='d-flex justify-content-center col px-auto'>{this.state.teacher.name}</div>
+            <div className='d-flex justify-content-end col'>Name:</div>
+            <div className='d-flex justify-content-start col'>{this.state.teacher.name}</div>
           </Row>
           <Row className='space'></Row>
           <Row>
-            <div className='d-flex justify-content-center col px-auto'>Email:</div>
-            <div className='d-flex justify-content-center col px-auto'>{this.state.teacher.email}</div>
+            <div className='d-flex justify-content-end col'>Email:</div>
+            <div className='d-flex justify-content-start col'>{this.state.teacher.email}</div>
           </Row>
           <Row className='space'></Row>
           <Row>
-            <div className='d-flex justify-content-center col px-auto'>Flipgrid:</div>
-            <div className='d-flex justify-content-center col px-auto'>{this.state.teacher.flipgrid}</div>
+            <div className='d-flex justify-content-end col'>Flipgrid:</div>
+            <div className='d-flex justify-content-start col'>{this.state.teacher.flipgrid}</div>
           </Row>
           <Row className='space'></Row>
           <Row>
-            <div className='d-flex justify-content-center col px-auto'>Classroom:</div>
-            <div className='d-flex justify-content-center col px-auto'>{this.state.teacher.classroom}</div>
+            <div className='d-flex justify-content-end col'>Classroom:</div>
+            <div className='d-flex justify-content-start col'>{this.state.teacher.classroom}</div>
           </Row>
           <Row className='space'></Row>
           <Row>
