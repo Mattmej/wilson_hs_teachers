@@ -29,7 +29,7 @@ const teacherList = (props) => {
                         const alertId = entry.id;
                         alert('the id is ' + alertId);
                     }}>
-                        {entry.lastName}, {entry.firstName}
+                        {entry.name}
                     </Button>
                 </Row>
                 <Row className='space'></Row>

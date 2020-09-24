@@ -64,27 +64,27 @@ class App extends Component {
     }
 
 
-    // Takes all info on each teacher and makes it an object. Then sorts alphabetically.
-    // teacherObjectEntries = teacherEntries.map(entry => {
-    //   const obj = {
-    //     id: entry[5],
-    //     name: entry[0],
-    //     email: entry[1],
-    //     flipgrid: entry[2],
-    //     classroom: entry[3]
-    //   };
-    //   return obj;
-    // });
+    // Takes all info on each teacher and makes it an object. 
+    teacherObjectEntries = teacherEntries.map(entry => {
+      const obj = {
+        id: entry[5],
+        name: entry[0],
+        email: entry[1],
+        flipgrid: entry[2],
+        classroom: entry[3]
+      };
+      return obj;
+    });
 
     // for (let i=0; i<teacherObjectEntries.length; i++) {
     //   teacherObjectEntries[i]["key"] = i;
     // }
 
-    // console.log(teacherObjectEntries);
-    console.log(teacherEntries);
+    console.log(teacherObjectEntries);
+    // console.log(teacherEntries);
 
     // Sets state
-    // this.setState({entries: teacherObjectEntries});
+    this.setState({entries: teacherObjectEntries});
 
   }
 
@@ -115,7 +115,7 @@ class App extends Component {
           pageTitle='Wilson High School Teacher List'
           // subTitle='Use the search bar to find a teacher, or display a list of all teachers!'
         />
-        {/* <TeacherList entries={this.state.entries}/> */}
+        <TeacherList entries={this.state.entries}/>
       </Container>
     )
   }
