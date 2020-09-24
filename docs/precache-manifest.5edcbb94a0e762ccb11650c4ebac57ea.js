@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b722cb2209c682828d2712cee5c38cf1",
+    "revision": "01c496bf7e54ac5f58981f6e0f09f393",
     "url": "/wilson_hs_teachers/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wilson_hs_teachers/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "e4b56f47c0a2ed245da2",
+    "revision": "7b8da25b688ec58c13ea",
     "url": "/wilson_hs_teachers/static/css/main.9a1b80a6.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wilson_hs_teachers/static/js/2.e0776439.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e4b56f47c0a2ed245da2",
-    "url": "/wilson_hs_teachers/static/js/main.69d3f082.chunk.js"
+    "revision": "7b8da25b688ec58c13ea",
+    "url": "/wilson_hs_teachers/static/js/main.1ea485a8.chunk.js"
   },
   {
     "revision": "c99fb73a3676fedd0ba7",

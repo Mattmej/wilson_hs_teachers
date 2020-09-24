@@ -102,7 +102,7 @@ class App extends Component {
 
     return(
       // <div>Hello, world!</div>
-      <Container fluid className='mx-0'>
+      <Container fluid className='mx-0 bg-light'>
         <Header 
           pageTitle='Wilson High School Teacher List'
           subTitle="Click on a teacher's name to view their info!"
