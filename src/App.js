@@ -123,6 +123,12 @@ class App extends Component {
     })
   }
 
+  goBack = () => {
+    this.setState({
+      teacher: null
+    })
+  }
+
 
 
   render() {
@@ -163,7 +169,12 @@ class App extends Component {
             <div className='d-flex justify-content-center col px-auto'>Classroom:</div>
             <div className='d-flex justify-content-center col px-auto'>{this.state.teacher.classroom}</div>
           </Row>
-
+          <Row className='space'></Row>
+          <Row>
+            <div className='d-flex justify-content-center col px-auto'>
+              <Button color='link' onClick={this.goBack}>Go Back</Button>
+            </div>
+          </Row>
         </div>
 
       }
