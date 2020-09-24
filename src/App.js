@@ -157,17 +157,23 @@ class App extends Component {
           <Row className='space'></Row>
           <Row>
             <div className='d-flex justify-content-end col'>Email:</div>
-            <div className='d-flex justify-content-start col'>{this.state.teacher.email}</div>
+            <div className='d-flex justify-content-start col'>
+              <a href={'mailto:' + this.state.teacher.email}>{this.state.teacher.email}</a>
+            </div>
           </Row>
           <Row className='space'></Row>
           <Row>
             <div className='d-flex justify-content-end col'>Flipgrid:</div>
-            <div className='d-flex justify-content-start col'>{this.state.teacher.flipgrid}</div>
+            <div className='d-flex justify-content-start col'>
+              <a href={this.state.teacher.flipgrid}>{this.state.teacher.flipgrid}</a>
+            </div>
           </Row>
           <Row className='space'></Row>
           <Row>
             <div className='d-flex justify-content-end col'>Classroom:</div>
-            <div className='d-flex justify-content-start col'>{this.state.teacher.classroom}</div>
+            <div className='d-flex justify-content-start col'>
+              <a href={this.state.teacher.classroom}>{this.state.teacher.classroom}</a>
+            </div>
           </Row>
           <Row className='space'></Row>
           <Row>
