@@ -36,7 +36,7 @@ class teacherList extends Component {
     constructor(props) {
         super();
         this.state = {
-            clickedTeacher: null
+            teacher: null
         }
     }
 
@@ -47,15 +47,15 @@ class teacherList extends Component {
 
     // }
 
-    onClickedTeacher = (teacher_id) => {
+    onClickedTeacher = () => {
         //         let teacherArray = this.props.entries;
         // let ourTeacher = teacherArray.find(entry => entry.id === teacher_id);
         // this.setState({
-        //     clickedTeacher: ourTeacher
+        //     clickedTeacher: teacher
         // })
 
 
-        this.props.click(this.state.clickedTeacher)
+        this.props.click(this.state.teacher)
     }
 
     // displayTeacherId = (e, teacher_id) => {
@@ -98,9 +98,14 @@ class teacherList extends Component {
                             const ourTeacher = this.props.entries.find(entry => entry.id === thisId);
                             this.setState({
                                 teacher: ourTeacher
+                            }, () => {
+                                console.log('this is the state of TeacherList');
+                                console.log(this.state.teacher);
+                                this.onClickedTeacher(ourTeacher);
                             })
                             // console.log(this.state.teacher);
-                            console.log(ourTeacher)
+                            // console.log(ourTeacher);
+                           
                         }}>
                             {entry.name}
                         </Button>

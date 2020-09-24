@@ -115,9 +115,12 @@ class App extends Component {
     // console.log(this);              // displays the app itself to the console.
 
 
-  //   this.setState({
-  //     teacher: clickedTeacher
-  //   })
+    this.setState({
+      teacher: clickedTeacher
+    }, () => {
+      console.log('this is the state of the main app');
+      console.log(this.state);
+    })
   }
 
 
